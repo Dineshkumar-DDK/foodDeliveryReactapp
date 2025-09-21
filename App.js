@@ -1,5 +1,8 @@
 import { createRoot } from "react-dom/client";
 
+const styledCard = {
+    backgroundColor:'#f0f0f0'
+}
 
 const Header = () => {
     return (
@@ -21,7 +24,7 @@ const Header = () => {
 
 const RestroCard = () => {
     return (
-        <div className="res-card" >
+        <div className="res-card" style={styledCard} >
             <h3>Stande Foods</h3>
         </div>
     )
