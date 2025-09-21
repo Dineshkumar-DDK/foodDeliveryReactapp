@@ -1,11 +1,11 @@
 import { createRoot } from "react-dom/client";
 
 
-const Header = ()=>{
+const Header = () => {
     return (
         <div className="header">
             <div className='logo-container'>
-                <img className='logo' src='./img/imag.jpg'/>
+                <img className='logo' src='./img/imag.jpg' />
             </div>
             <div className="nav-items">
                 <ul>
@@ -18,10 +18,32 @@ const Header = ()=>{
         </div>
     )
 }
-const AppLayout = ()=>{
+
+const RestroCard = () => {
+    return (
+        <div className="res-card" >
+            <h3>Stande Foods</h3>
+        </div>
+    )
+}
+
+const Body = () => {
+    return (
+        <div className="body">
+            <div className="Search">Search comming soon..</div>
+            {/* restro card container  */}
+            <div className="res-container">
+                <RestroCard />
+            </div>
+        </div>
+    )
+}
+
+const AppLayout = () => {
     return (
         <div className='app'>
-            <Header/>
+            <Header />
+            <Body/>
         </div>
     )
 }
