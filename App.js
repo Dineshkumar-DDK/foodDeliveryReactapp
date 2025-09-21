@@ -1,5 +1,6 @@
-import {React} from "react"
-import ReactDom from 'react-dom/client'
+import { createRoot } from "react-dom/client";
+
+
 const Header = ()=>{
     return (
         <div className="header">
@@ -25,8 +26,6 @@ const AppLayout = ()=>{
     )
 }
 
-console.log(ReactDom,"chekcing the reactdom..")
-const root = ReactDom.createRoot(document.getElementById('root'))
-const renderCompound = root.render(<AppLayout/>)
+const root = createRoot(document.getElementById('root'));
+root.render(<AppLayout />);
 
-export {renderCompound}
