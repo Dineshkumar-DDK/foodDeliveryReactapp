@@ -24,8 +24,12 @@ const Header = () => {
 
 const RestroCard = () => {
     return (
-        <div className="res-card" style={styledCard} >
+        <div className="res-card" style={styledCard}>
+            <img className="res-logo" src="https://expressinnindia.com/wp-content/uploads/2022/08/ASTER-2-scaled.jpg" />
             <h3>Stande Foods</h3>
+            <h4>North Indian, Chinese</h4>
+            <h4>45 mins</h4>
+            <h4>4.2 stars</h4>
         </div>
     )
 }
