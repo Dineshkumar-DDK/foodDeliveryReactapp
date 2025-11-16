@@ -1,5 +1,7 @@
 import { createRoot } from "react-dom/client";
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter,Route,RouterProvider } from "react-router-dom";
+import { About } from "./src/components/About";
+import Error from "./src/components/Error";
 
 const styledCard = {
     backgroundColor:'#f0f0f0'
@@ -63,10 +65,15 @@ const AppLayout = () => {
 const appRouter = createBrowserRouter([
     {
         path:'/',
-        element:<AppLayout/>
+        element:<AppLayout/>,
+        errorElement:<Error/>
+    },
+    {
+        path:'/about',
+        element:<About/>
     }
 ])
 
 const root = createRoot(document.getElementById('root'));
-root.render(<AppLayout />);
+root.render(<RouterProvider router={appRouter}/>);
 
