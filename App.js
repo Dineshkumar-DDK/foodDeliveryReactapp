@@ -5,12 +5,6 @@ const styledCard = {
     backgroundColor:'#f0f0f0'
 }
 
-const appRouter = createBrowserRouter([
-    {
-        path:'/',
-        element:<AppLayout/>
-    }
-])
 
 const Header = () => {
     return (
@@ -62,6 +56,16 @@ const AppLayout = () => {
         </div>
     )
 }
+
+// created at the bottom because if created at top we get error : can't access AppLayout before intialization 
+
+
+const appRouter = createBrowserRouter([
+    {
+        path:'/',
+        element:<AppLayout/>
+    }
+])
 
 const root = createRoot(document.getElementById('root'));
 root.render(<AppLayout />);
