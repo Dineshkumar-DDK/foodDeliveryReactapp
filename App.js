@@ -1,10 +1,10 @@
 import { createRoot } from "react-dom/client";
-import { createBrowserRouter,Route,RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Outlet, Route, RouterProvider } from "react-router-dom";
 import { About } from "./src/components/About";
 import Error from "./src/components/Error";
 
 const styledCard = {
-    backgroundColor:'#f0f0f0'
+    backgroundColor: '#f0f0f0'
 }
 
 
@@ -54,7 +54,7 @@ const AppLayout = () => {
     return (
         <div className='app'>
             <Header />
-            <Body/>
+            <Outlet />
         </div>
     )
 }
@@ -64,16 +64,23 @@ const AppLayout = () => {
 
 const appRouter = createBrowserRouter([
     {
-        path:'/',
-        element:<AppLayout/>,
-        errorElement:<Error/>
-    },
-    {
-        path:'/about',
-        element:<About/>
+        path: '/',
+        element: <AppLayout />,
+        children: [
+            {
+               path:'/',
+               element: <Body/>
+            },
+            {
+                path: '/about',
+                element: <About />
+            }
+        ],
+        errorElement: <Error />
     }
+
 ])
 
 const root = createRoot(document.getElementById('root'));
-root.render(<RouterProvider router={appRouter}/>);
+root.render(<RouterProvider router={appRouter} />);
 
