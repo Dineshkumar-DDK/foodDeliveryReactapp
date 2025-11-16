@@ -25,13 +25,25 @@
 }
 
 /* body */
-
+.res-container{
+    display:flex;
+    flex-wrap:wrap;
+}
 /* card */
 .res-card{
+    margin:5px; 
     padding:5px;
     width:200px;
     height:300px;
     border:1px solid black;
+    
+}
+
+.res-card:hover{
+    box-shadow:5px 5px 5px grey;
+    cursor:pointer;
+    transition:0.3s;
+    
 }
 
 .search{

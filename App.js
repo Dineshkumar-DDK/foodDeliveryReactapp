@@ -1,8 +1,16 @@
 import { createRoot } from "react-dom/client";
+import { createBrowserRouter } from "react-router-dom";
 
 const styledCard = {
     backgroundColor:'#f0f0f0'
 }
+
+const appRouter = createBrowserRouter([
+    {
+        path:'/',
+        element:<AppLayout/>
+    }
+])
 
 const Header = () => {
     return (
