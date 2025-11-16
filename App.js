@@ -1,11 +1,11 @@
 import { createRoot } from "react-dom/client";
-import { createBrowserRouter, Outlet, Route, RouterProvider } from "react-router-dom";
-import { About } from "./src/components/About";
-import Error from "./src/components/Error";
+import { createBrowserRouter, Link, Outlet, Route, RouterProvider } from "react-router-dom";
+import { About } from "./src/About/components/About";
+import Contact from "./src/Contact/components/Contact";
+import Others from "./src/Others/components/Others";
+import Error from "./src/Error";
+import {Home} from "./src/Home/components/Home";
 
-const styledCard = {
-    backgroundColor: '#f0f0f0'
-}
 
 
 const Header = () => {
@@ -16,39 +16,17 @@ const Header = () => {
             </div>
             <div className="nav-items">
                 <ul>
-                    <li>Home</li>
-                    <li>About Us</li>
-                    <li>Contact Us</li>
-                    <li>Cart</li>
+                    <li><Link to='/'>Home</Link></li>
+                    <li><Link to='/about'>About Me</Link></li>
+                    <li><Link to='/contact'>Contact Me</Link></li>
+                    <li><Link to='/others'>Others</Link></li>
                 </ul>
             </div>
         </div>
     )
 }
 
-const RestroCard = () => {
-    return (
-        <div className="res-card" style={styledCard}>
-            <img className="res-logo" src="https://expressinnindia.com/wp-content/uploads/2022/08/ASTER-2-scaled.jpg" />
-            <h3>Stande Foods</h3>
-            <h4>North Indian, Chinese</h4>
-            <h4>45 mins</h4>
-            <h4>4.2 stars</h4>
-        </div>
-    )
-}
 
-const Body = () => {
-    return (
-        <div className="body">
-            <div className="Search">Search comming soon..</div>
-            {/* restro card container  */}
-            <div className="res-container">
-                <RestroCard />
-            </div>
-        </div>
-    )
-}
 
 const AppLayout = () => {
     return (
@@ -69,14 +47,22 @@ const appRouter = createBrowserRouter([
         children: [
             {
                path:'/',
-               element: <Body/>
+               element: <Home/>
             },
             {
                 path: '/about',
                 element: <About />
+            },
+            {
+                path:'/contact',
+                element:<Contact/>
+            },
+            {
+                path:'/others',
+                element:<Others/>
             }
         ],
-        errorElement: <Error />
+        errorElement: <Error/>
     }
 
 ])
