@@ -5,6 +5,7 @@ import Contact from "./src/Contact/components/Contact";
 import Others from "./src/Others/components/Others";
 import Error from "./src/Error";
 import {Home} from "./src/Home/components/Home";
+import CompanyCard from "./src/Home/components/CompanyCard";
 
 
 
@@ -60,6 +61,10 @@ const appRouter = createBrowserRouter([
             {
                 path:'/others',
                 element:<Others/>
+            },
+            {
+                path:'/experience/:orgId',
+                element:<CompanyCard/>
             }
         ],
         errorElement: <Error/>
