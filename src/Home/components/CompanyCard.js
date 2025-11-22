@@ -1,5 +1,7 @@
 import { useEffect,useState } from "react"
+import { useParams } from "react-router-dom";
 const CompanyCard = ()=>{
+    const {orgId} = useParams();
     const [orgData,setOrgData] = useState(null);
     useEffect(()=>{
         fetchOrgBasedProfileInfo()
@@ -19,6 +21,7 @@ const CompanyCard = ()=>{
         <>
           <div>
             to do api call 
+            <p>{orgId}- this is id from params</p>
           </div>
         </>
     )
@@ -26,6 +29,7 @@ const CompanyCard = ()=>{
         <div>
             <div>
                 <h1>Company Name</h1>
+                
                 <p><span>from</span><span>to</span></p>
             </div>
             <div>

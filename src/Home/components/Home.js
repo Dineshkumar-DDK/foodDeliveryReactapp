@@ -1,4 +1,5 @@
 import React from 'react'
+import WorkExperience from './WorkExperience'
 
 const styledCard = {
     backgroundColor: '#f0f0f0'
@@ -11,6 +12,7 @@ const RestroCard = () => {
       <h4>North Indian, Chinese</h4>
       <h4>45 mins</h4>
       <h4>4.2 stars</h4>
+      
     </div>
   )
 }
@@ -35,6 +37,8 @@ export const Home = () => {
       Python
       DSA
       still loading...
+      <hr/>
+      <WorkExperience/>
     </div>
   )
 }
