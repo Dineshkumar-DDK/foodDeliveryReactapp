@@ -30,7 +30,7 @@ const Body = () => {
 }
 export const Home = () => {
   return (
-    <div>
+    <div className="bg-red-100">
       <Body />
       React
       Next
