@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import WorkExperience from './WorkExperience'
+import copyRightsContext from '../../Utils/GlobalContext'
 
 const styledCard = {
     backgroundColor: '#f0f0f0'
@@ -29,6 +30,7 @@ const Body = () => {
   )
 }
 export const Home = () => {
+  const {user,message}  = useContext(copyRightsContext);
   return (
     <div className="bg-red-100">
       <Body />
@@ -39,6 +41,9 @@ export const Home = () => {
       still loading...
       <hr/>
       <WorkExperience/>
+      <div>
+        {user}{message}
+      </div>
     </div>
   )
 }
