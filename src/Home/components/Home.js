@@ -42,7 +42,7 @@ export const Home = () => {
       <hr/>
       <WorkExperience/>
       <div>
-        {user}{message}
+         {message + " " + user}
       </div>
     </div>
   )
