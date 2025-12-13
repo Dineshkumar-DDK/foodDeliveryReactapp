@@ -51,8 +51,8 @@ const AppLayout = () => {
         }, 3000);
     }, [])
     return (
-        <CopyRightsContext.Provider value={copyrightsData}>
-            <RecruiterContext.Provider value={hrData}>
+        <CopyRightsContext.Provider value={{copyrightsData}}>
+            <RecruiterContext.Provider value={{hrData,setHRData}}>
                 <div className='app'>
                     <Header />
                     <Outlet />

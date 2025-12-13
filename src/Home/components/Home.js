@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import WorkExperience from './WorkExperience'
 import copyRightsContext from '../../Utils/GlobalContext'
 import recruiterContext  from '../../Utils/recruiterContext'
@@ -33,13 +33,21 @@ const Body = () => {
   )
 }
 export const Home = () => {
-  const {user,message}  = useContext(CopyRightsContext);
-  const {name,hrCount} = useContext(RecruiterContext)
+  const {copyrightsData}  = useContext(CopyRightsContext);
+  const{user,message} = copyrightsData;
+  
+  const {hrData,setHRData} =  useContext(RecruiterContext)
+  const {name,hrCount} =hrData
   return (
     <div className="bg-red-100">
       <div>
         Hello HR {name}. Dinesh got almost {hrCount} visits.
       </div>
+      <input
+       onChange={(e)=>setHRData((prev)=>{
+        return {...prev,name:e.target.value}
+       })}
+      />
       <Body />
       React
       Next
