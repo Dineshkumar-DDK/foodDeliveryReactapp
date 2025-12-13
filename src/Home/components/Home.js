@@ -1,6 +1,9 @@
 import React, { useContext } from 'react'
 import WorkExperience from './WorkExperience'
 import copyRightsContext from '../../Utils/GlobalContext'
+import recruiterContext  from '../../Utils/recruiterContext'
+import CopyRightsContext from '../../Utils/GlobalContext'
+import RecruiterContext from '../../Utils/recruiterContext'
 
 const styledCard = {
     backgroundColor: '#f0f0f0'
@@ -30,9 +33,13 @@ const Body = () => {
   )
 }
 export const Home = () => {
-  const {user,message}  = useContext(copyRightsContext);
+  const {user,message}  = useContext(CopyRightsContext);
+  const {name,hrCount} = useContext(RecruiterContext)
   return (
     <div className="bg-red-100">
+      <div>
+        Hello HR {name}. Dinesh got almost {hrCount} visits.
+      </div>
       <Body />
       React
       Next

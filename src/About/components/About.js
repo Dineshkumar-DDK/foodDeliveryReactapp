@@ -1,5 +1,5 @@
 import React from "react";
-import copyRightsContext from "../../Utils/GlobalContext";
+import CopyRightsContext from "../../Utils/GlobalContext";
 class About extends React.Component {
     constructor(props) {
         super(props)
@@ -17,14 +17,14 @@ class About extends React.Component {
                 {this.state?.profession}
                 nearly {this.state.internship} year of internship experience and
                 {this.state.experience} year of professional experience
-                <copyRightsContext.Consumer>
+                <CopyRightsContext.Consumer>
                     {
                         ({user,message})=>
                             <h6>
                                 {message + " " + user}
                             </h6>
                     }
-                </copyRightsContext.Consumer>
+                </CopyRightsContext.Consumer>
             </div>
         )
     }

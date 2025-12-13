@@ -4,12 +4,16 @@ import { About } from "./src/About/components/About";
 import Contact from "./src/Contact/components/Contact";
 import Others from "./src/Others/components/Others";
 import Error from "./src/Error";
-import {Home} from "./src/Home/components/Home";
+import { Home } from "./src/Home/components/Home";
 import CompanyCard from "./src/Home/components/CompanyCard";
+import { useEffect,useState } from "react";
+import CopyRightsContext from "./src/Utils/GlobalContext";
+import RecruiterContext from "./src/Utils/recruiterContext";
 
 
 
 const Header = () => {
+
     return (
         <div className="header">
             <div className='logo-container'>
@@ -30,11 +34,31 @@ const Header = () => {
 
 
 const AppLayout = () => {
+    const [hrData, setHRData] = useState({})
+    const [copyrightsData, setCopyRightsData] = useState({})
+    useEffect(() => {
+        setTimeout(() => {
+
+            setHRData({
+                name: "Maria johns",
+                hrCount: 1
+            })
+
+            setCopyRightsData({
+                user: "Dinesh Kumar Dhamotharan",
+                message: "All rights only reserverd to Mr."
+            })
+        }, 3000);
+    }, [])
     return (
-        <div className='app'>
-            <Header />
-            <Outlet />
-        </div>
+        <CopyRightsContext.Provider value={copyrightsData}>
+            <RecruiterContext.Provider value={hrData}>
+                <div className='app'>
+                    <Header />
+                    <Outlet />
+                </div>
+            </RecruiterContext.Provider>
+        </CopyRightsContext.Provider>
     )
 }
 
@@ -47,27 +71,27 @@ const appRouter = createBrowserRouter([
         element: <AppLayout />,
         children: [
             {
-               path:'/',
-               element: <Home/>
+                path: '/',
+                element: <Home />
             },
             {
                 path: '/about',
                 element: <About name={"dinesh..kumar."} />
             },
             {
-                path:'/contact',
-                element:<Contact/>
+                path: '/contact',
+                element: <Contact />
             },
             {
-                path:'/others',
-                element:<Others/>
+                path: '/others',
+                element: <Others />
             },
             {
-                path:'/experience/:orgId',
-                element:<CompanyCard/>
+                path: '/experience/:orgId',
+                element: <CompanyCard />
             }
         ],
-        errorElement: <Error/>
+        errorElement: <Error />
     }
 
 ])
