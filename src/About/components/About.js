@@ -19,9 +19,9 @@ class About extends React.Component {
                 {this.state.experience} year of professional experience
                 <CopyRightsContext.Consumer>
                     {
-                        ({user,message})=>
+                        ({copyrightsData})=>
                             <h6>
-                                {message + " " + user}
+                                {copyrightsData?.message + " " + copyrightsData?.user}
                             </h6>
                     }
                 </CopyRightsContext.Consumer>
